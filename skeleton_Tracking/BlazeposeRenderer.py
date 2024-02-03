@@ -131,8 +131,8 @@ class BlazeposeRenderer:
             elbow = body.landmarks[14, :2]
             wrist = body.landmarks[16, :2]
             
-            angle_shoulder_elbow = calculate_angle(shoulder, elbow)
-            angle_elbow_wrist = calculate_angle(elbow, wrist)
+            angle_shoulder_elbow = self.calculate_angle(shoulder, elbow)
+            angle_elbow_wrist = self.calculate_angle(elbow, wrist)
             
             angle_forearm_hand = self.calculate_angle(elbow, wrist)
 
