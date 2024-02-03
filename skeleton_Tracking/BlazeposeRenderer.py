@@ -1,3 +1,4 @@
+#BalzeposeRenderer.py
 import cv2
 import numpy as np
 from o3d_utils import Visu3D
@@ -73,15 +74,14 @@ class BlazeposeRenderer:
             fourcc = cv2.VideoWriter_fourcc(*"MJPG")
             self.output = cv2.VideoWriter(output,fourcc,tracker.video_fps,(tracker.img_w, tracker.img_h)) 
 	
-    def get_joint_angles(self):
-        return self.joint_angles
 
-    # NEW: Angle calculation method
+    #NEW: Angle calculation method
     def calculate_angle(self, vec1, vec2):
         dot_product = np.dot(vec1, vec2)
         norm_product = np.linalg.norm(vec1) * np.linalg.norm(vec2)
         cos_angle = dot_product / norm_product
         angle = np.arccos(np.clip(cos_angle, -1.0, 1.0))
+        print("Calculated Angle:", angle)
         return np.degrees(angle)
 
     def is_present(self, body, lm_id):
@@ -139,7 +139,9 @@ class BlazeposeRenderer:
             # Append the angles to the list
             self.joint_angles.append((angle_shoulder_elbow, angle_elbow_wrist, angle_forearm_hand))
     
-        	
+    #NEW: just return the angles
+    def get_joint_angles(self):
+        return self.joint_angles	
 
     def draw_3d(self, body):
         self.vis3d.clear()
