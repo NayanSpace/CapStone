@@ -21,7 +21,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 **Dependancy**
+
 Robot used: **UR5e**
+
 This project was tested and ran on Ubuntu 22.04, using ROS2 Humble(Follow ROS2 Humble documation to install), and gazebo classic.
 Inoder to run the file you will need to step up an ROS workspace
 
